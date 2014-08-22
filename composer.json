@@ -1,0 +1,27 @@
+{
+  "name":         "egulias/tag-debug",
+  "description":  "Debug library for serivces tags registered in the Symfony 2 DIC",
+  "homepage":     "https://github.com/egulias/ListenersDebug.git",
+  "type":         "library",
+  "keywords":     ["tag", "services", "DIC", "DependencyInjection", "Depency Container", "Depency Injection"],
+  "license":      "MIT",
+  "authors":      [
+  {
+    "name":     "Eduardo Gulias Davis",
+    "homepage": "http://egulias.com"
+  }
+  ],
+    "require":      {
+        "symfony/event-dispatcher": "~2.3",
+        "symfony/dependency-injection": "~2.3"
+    },
+    "require-dev": {
+        "satooshi/php-coveralls": "dev-master",
+        "phpunit/phpunit":"~4.0"
+    },
+    "autoload":     {
+      "psr-4": { "Egulias\\TagDebug\\": "" }
+    }
+}
+
+
