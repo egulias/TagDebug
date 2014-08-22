@@ -15,7 +15,7 @@ class TagFetcher
         $this->builder = $builder;
     }
 
-    public function fetch($showPrivate = false)
+    public function fetch(FilterList $filters, $showPrivate = false)
     {
         $definitions = $this->builder->getDefinitions();
 
@@ -33,11 +33,25 @@ class TagFetcher
                 continue;
             }
             foreach ($tags as $key => $attributes) {
-                $this->tags[$key][$definition->getClass()]['attributes'] = $attributes;
-                $this->tags[$key][$definition->getClass()]['definition'] = $definition;
+                $tag = new Tag($key, $attributes);
+                if ($this->applyFilters($tag, $filters)) {
+                    $this->tags[$key][$definition->getClass()]['tag'] = $tag;
+                    $this->tags[$key][$definition->getClass()]['definition'] = $definition;
+                }
             }
         }
 
         return $this->tags;
+    }
+
+    private function applyFilters(Tag $tag, FilterList $filters)
+    {
+        foreach ($filters as $filter) {
+            if (!$filter->isValid($tag)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
