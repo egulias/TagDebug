@@ -16,7 +16,8 @@ class FilterList extends ArrayIterator
 
     public function append($value)
     {
-        $this->isFilter($value);
+        $isFilter = $this->getValidationClosure();
+        $isFilter($value);
         parent::append($value);
     }
 
@@ -28,16 +29,10 @@ class FilterList extends ArrayIterator
     private function getValidationClosure()
     {
         return function($filter) {
-            $this->isFilter($filter);
+            if (!$filter instanceof Filter) {
+                throw new InvalidArgumentException;
+            }
+            return true;
         };
-    }
-
-    private function isFilter($filter)
-    {
-        if (!$filter instanceof Filter) {
-            throw new InvalidArgumentException;
-        }
-
-        return true;
     }
 }
