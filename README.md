@@ -14,8 +14,8 @@ Basic usage
 ```php
 <?php
 
-use Egulias\TagDebug\TagFetcher;
-use Egulias\TagDebug\FilterList;
+use Egulias\TagDebug\Tag\TagFetcher;
+use Egulias\TagDebug\Tag\FilterList;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 $containerBuilder = new ContainerBuilder;
@@ -32,9 +32,9 @@ Currently filters work in an "AND" fashion, which means that the Tag must comply
 ```php
 <?php
 
-use Egulias\TagDebug\TagFetcher;
-use Egulias\TagDebug\FilterList;
-use Egulias\TagDebug\Filter\Name;
+use Egulias\TagDebug\Tag\TagFetcher;
+use Egulias\TagDebug\Tag\FilterList;
+use Egulias\TagDebug\Tag\Filter\Name;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 $containerBuilder = new ContainerBuilder;
@@ -45,5 +45,5 @@ $filters->addFilter(new Name("nameToFilterFor"));
 $tags = $fetcher->fetch($filters);
 ```
 
-You can implement your own filters by implementing `Egulias\TagDebug\Filter` and then adding it to the filter list.
+You can implement your own filters by implementing `Egulias\TagDebug\Tag\Filter` and then adding it to the filter list.
 
