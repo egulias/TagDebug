@@ -62,7 +62,7 @@ class TagFetcherTest extends \PHPUnit_Framework_TestCase
             ->setPublic(true);
         $definition2 = $container->register('another_dummy_service', 'Egulias\Tests\Service2Dummy');
         $definition2
-            ->addTag('custom_tag_name', array('method' => 'name', 'number' => 8, 'another' => 'attribute'))
+            ->addTag('custom_tag_name', array('method' => 'name', 'number' => 10, 'another' => 'attribute'))
             ->setPublic(true);
 
         $fetcher = new TagFetcher($container);
@@ -70,8 +70,9 @@ class TagFetcherTest extends \PHPUnit_Framework_TestCase
         $filters = new FilterList();
         $filters->append(new Name('custom_tag_name'));
         $filters->append(new AttributeValue('number', 8));
-        $services = $fetcher->fetch($filters);
+        $tags = $fetcher->fetch($filters);
 
-        $this->assertCount(1, $services);
+        $this->assertCount(1, $tags);
+        $this->assertCount(1, $tags['custom_tag_name']);
     }
 }
