@@ -25,6 +25,12 @@ $filters = new FilterList();
 $tags = $fetcher->fetch($filters);
 ```
 
+`$tags` will have one key for each tag name:
+ ```php
+$tags['tag-name']['Class\Name\Of\Service']['tag'] = Egulias\TagDebug\Tag\Tag
+$tags['tag-name']['Class\Name\Of\Service']['definition'] = Symfony\Component\DependencyInjection\Definition
+ ```
+
 Filtering
 -----------
 Currently filters work in an "AND" fashion, which means that the Tag must comply every filter.
