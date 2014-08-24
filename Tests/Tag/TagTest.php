@@ -37,4 +37,11 @@ class TagTest extends \PHPUnit_Framework_TestCase
 
         $tag->get('not-exists');
     }
+
+    public function testGetAllArgumentsAsNameValue()
+    {
+        $tag = new Tag('aTag', array('attr1' => 'value', 'attr2' => 'value2'));
+
+        $this->assertEquals(array('attr1' => 'value', 'attr2' => 'value2'), $tag->getAttributes());
+    }
 }

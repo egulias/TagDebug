@@ -19,6 +19,11 @@ class Tag
         return $this->name;
     }
 
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
     public function hasAttribute($attrName)
     {
         return isset($this->attributes[$attrName]);
