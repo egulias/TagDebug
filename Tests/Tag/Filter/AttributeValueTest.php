@@ -21,7 +21,16 @@ class AttributeValueTest extends \PHPUnit_Framework_TestCase
         $attributeName = 'test';
         $string = 'value';
         $tag = new Tag('dummy_tag', array($attributeName => 'value'));
-        $filter = new Filter\AttributeValue($attributeName, 'not-exists');
+        $filter = new Filter\AttributeValue('fake-name', 'not-exists');
+        $this->assertFalse($filter->isValid($tag));
+    }
+
+    public function testFilterAttributeIsNotValid()
+    {
+        $attributeName = 'test';
+        $string = 'value2';
+        $tag = new Tag('dummy_tag', array($attributeName => 'value'));
+        $filter = new Filter\AttributeValue($attributeName, $string);
         $this->assertFalse($filter->isValid($tag));
     }
 }
