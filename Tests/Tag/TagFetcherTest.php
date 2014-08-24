@@ -25,10 +25,7 @@ class TagFetcherTest extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(1, $services);
         $this->assertArrayHasKey('custom_tag_name', $services);
-        $this->assertArrayHasKey('Egulias\Tests\ServiceDummy', $services['custom_tag_name']);
-        $this->assertArrayHasKey('tag', $services['custom_tag_name']['Egulias\Tests\ServiceDummy']);
-        //tag instance of tag
-        $this->assertArrayHasKey('definition', $services['custom_tag_name']['Egulias\Tests\ServiceDummy']);
+        $this->assertInstanceOf('Egulias\TagDebug\Tag\Tag', $services['custom_tag_name']['dummy_service']);
     }
 
     public function testFetchTagsFilteredWithOneFilter()

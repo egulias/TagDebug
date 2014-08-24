@@ -19,12 +19,12 @@ class TagFetcher
     {
         $definitions = $this->builder->getDefinitions();
 
-        foreach ($definitions as $definition) {
+        foreach ($definitions as $id => $definition) {
             if ($this->DontShowPrivate($definition, $showPrivate)) {
                 continue;
             }
 
-            $this->fetchTags($definition, $filters);
+            $this->fetchTags($definition, $id, $filters);
         }
 
         return $this->tags;
@@ -39,7 +39,7 @@ class TagFetcher
         return false;
     }
 
-    private function fetchTags(Definition $definition, FilterList $filters)
+    private function fetchTags(Definition $definition, $definitionId, FilterList $filters)
     {
         $tags = $definition->getTags();
         if (empty($tags)) {
@@ -49,8 +49,7 @@ class TagFetcher
         foreach ($tags as $key => $attributes) {
             $tag = new Tag($key, $attributes[0]);
             if ($this->filter($tag, $filters)) {
-                $this->tags[$key][$definition->getClass()]['tag'] = $tag;
-                $this->tags[$key][$definition->getClass()]['definition'] = $definition;
+                $this->tags[$key][$definitionId] = $tag;
             }
         }
     }
