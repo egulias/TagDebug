@@ -3,7 +3,6 @@
 namespace Egulias\TagDebug\Tag;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\Definition;
 
 class TagFetcher
