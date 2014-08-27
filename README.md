@@ -1,4 +1,4 @@
-# Tag debug for Symfony2 DIC Events [![Build Status](https://travis-ci.org/egulias/TagDebug.svg?branch=1.0.0)](https://travis-ci.org/egulias/TagDebug) [![Coverage Status](https://coveralls.io/repos/egulias/TagDebug/badge.png)](https://coveralls.io/r/egulias/TagDebug)
+# Tag debug for Symfony2 DIC Events [![Build Status](https://travis-ci.org/egulias/TagDebug.svg?branch=1.0.0)](https://travis-ci.org/egulias/TagDebug) [![Coverage Status](https://coveralls.io/repos/egulias/TagDebug/badge.png)](https://coveralls.io/r/egulias/TagDebug) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/egulias/TagDebug/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/egulias/TagDebug/?branch=master)
 
 This library will fetch information about all the tagged services
 
