@@ -20,7 +20,7 @@ class TagFetcher
         $definitions = $this->builder->getDefinitions();
 
         foreach ($definitions as $id => $definition) {
-            if ($this->DontShowPrivate($definition, $showPrivate)) {
+            if ($this->dontShowPrivate($definition, $showPrivate)) {
                 continue;
             }
 
@@ -30,7 +30,7 @@ class TagFetcher
         return $this->tags;
     }
 
-    private function DontShowPrivate(Definition $definition, $showPrivate = false)
+    private function dontShowPrivate(Definition $definition, $showPrivate = false)
     {
         if (!$showPrivate && !$definition->isPublic()) {
             return true;
