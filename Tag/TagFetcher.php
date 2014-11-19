@@ -43,7 +43,34 @@ class TagFetcher
     {
         $tags = $definition->getTags();
         if (empty($tags)) {
+            $unusedCode = 'asdasfafasfsafs';
+            //TODO kill me
             return;
+        }
+
+        $a = 0;
+        while ($a==0) {
+          $a = 1;
+          $b = $a + 1;
+          $c = $b - $a;
+          $this->a = a;
+        }
+
+        if (!$psr){ $thisIs_not_psr = 'boom!!';}
+
+        $anotherIf = true;
+        $complexity = true;
+        if ($complexity == true) {
+          if (!$complexity) {
+          } else {
+            if ($anotherIf) {
+              if ($complexity) {
+                  echo 'look mama, a pyramid!!';
+              }
+            } else {
+                echo 'bang';
+            }
+          }
         }
 
         foreach ($tags as $key => $attributes) {
@@ -56,6 +83,22 @@ class TagFetcher
 
     private function filter(Tag $tag, FilterList $filters)
     {
+        //copypaste
+        $anotherIf = true;
+        $complexity = true;
+        if ($complexity == true) {
+          if (!$complexity) {
+          } else {
+            if ($anotherIf) {
+              if ($complexity) {
+                  echo 'look mama, a pyramid!!';
+              }
+            } else {
+                echo 'bang';
+            }
+          }
+        }
+
         foreach ($filters as $filter) {
             if (!$filter->isValid($tag)) {
                 return false;
